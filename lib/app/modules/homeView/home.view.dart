@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free2play/app/helpers/web.helper.dart';
 import '../gameList/gameList.widget.dart';
 
 class HomeView extends StatelessWidget {
@@ -26,8 +27,12 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     Image.network(
-                        'https://www.freetogame.com/assets/images/freetogame-logo.png',
-                        loadingBuilder: (context, child, loadingProgress){return loadingProgress == null ? child : const Center(child: CircularProgressIndicator());}),
+                        WebHelper.freeGamesLogo,
+                        loadingBuilder: (context, child, loadingProgress) {
+                      return loadingProgress == null
+                          ? child
+                          : const Center(child: CircularProgressIndicator());
+                    }),
                   ],
                 ),
               )),
