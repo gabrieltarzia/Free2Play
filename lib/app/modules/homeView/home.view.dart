@@ -26,7 +26,8 @@ class HomeView extends StatelessWidget {
                       ),
                     ),
                     Image.network(
-                        'https://www.freetogame.com/assets/images/freetogame-logo.png'),
+                        'https://www.freetogame.com/assets/images/freetogame-logo.png',
+                        loadingBuilder: (context, child, loadingProgress){return loadingProgress == null ? child : const Center(child: CircularProgressIndicator());}),
                   ],
                 ),
               )),

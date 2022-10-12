@@ -5,4 +5,5 @@ import 'package:get/get.dart';
 class GameListController extends GetxController {
   GameListRepository repository = GameListRepository();
   Future<List<Game>> gameList() async => await repository.getGameList();
+  Future<Game> gameDetails(int id) async => await repository.getGameDetails(id);
 }

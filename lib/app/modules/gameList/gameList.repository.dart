@@ -13,8 +13,21 @@ class GameListRepository extends GetConnect {
 
     for (Map game in games) {
       Game g = Game.fromJson(game);
+      //g = await getGameDetails(452);
       gameList.add(g);
     }
     return gameList;
+  }
+
+  Future<Game> getGameDetails(int? id) async {
+    var path = 'https://www.freetogame.com/api/game?id=${id}';
+
+    final response = await get(path);
+
+    final game = response.body;
+
+    Game gameDetails = Game.fromJson(game);
+
+    return gameDetails;
   }
 }
